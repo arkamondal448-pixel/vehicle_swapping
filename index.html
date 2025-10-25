@@ -1,0 +1,100 @@
+html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Swapping Form</title>
+    <!-- Load Tailwind CSS framework -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link to the custom external CSS file -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100 min-h-screen p-4 sm:p-8 flex items-start justify-center">
+
+    <!-- Main Container -->
+    <div class="w-full max-w-4xl bg-white shadow-2xl rounded-xl p-6 sm:p-10 border border-gray-200 mt-8">
+        <h1 class="text-4xl font-extrabold text-center text-blue-700 mb-8">Vehicle Swapping Form</h1>
+
+        <form id="vehicleSwappingForm" class="space-y-6">
+
+            <!-- Hidden field for auto-timestamp -->
+            <input type="hidden" id="timestamp" name="Time Stamp">
+
+            <!-- Section 1: Exchange Details -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 border-b pb-6 mb-6">
+                <div class="form-group space-y-2">
+                    <label for="representativeName" class="block text-sm">Representative Name</label>
+                    <input type="text" id="representativeName" name="Representative Name" required class="form-input">
+                </div>
+                <div class="form-group space-y-2">
+                    <label for="timeOfExchange" class="block text-sm">Time Of Exchange</label>
+                    <input type="time" id="timeOfExchange" name="Time Of Exchange" required class="form-input">
+                </div>
+                <div class="form-group space-y-2">
+                    <label for="riderName" class="block text-sm">Rider Name</label>
+                    <input type="text" id="riderName" name="Rider Name" required class="form-input">
+                </div>
+                <div class="form-group space-y-2">
+                    <label for="contactNumber" class="block text-sm">Contact Number</label>
+                    <input type="tel" id="contactNumber" name="Contact Number" required class="form-input" placeholder="e.g., +91 98765 43210">
+                </div>
+            </div>
+
+            <!-- Section 2: Breakdown Vehicle Details -->
+            <h2 class="text-xl font-semibold text-gray-700 mb-4 border-l-4 border-red-500 pl-3">Breakdown Vehicle Details</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="form-group space-y-2">
+                    <label for="breakdownRegNum" class="block text-sm">Breakdown Vehicle Registration Number</label>
+                    <input type="text" id="breakdownRegNum" name="Breakdown Vehicle Registration Number" required class="form-input">
+                </div>
+                <div class="form-group space-y-2">
+                    <label for="breakdownOdometer" class="block text-sm">Breakdown Odometer (km)</label>
+                    <input type="number" id="breakdownOdometer" name="Breakdown Odometer" required class="form-input">
+                </div>
+                <div class="form-group space-y-2 md:col-span-2">
+                    <label for="breakdownOdoPhoto" class="block text-sm">Breakdown Odo Photo (Upload)</label>
+                    <input type="file" id="breakdownOdoPhoto" name="Breakdown Odo Photo" accept="image/*" class="form-input p-2 bg-gray-50 border-gray-300">
+                </div>
+                <div class="form-group space-y-2 md:col-span-2">
+                    <label for="breakdownLocation" class="block text-sm">Breakdown Location (with Address)</label>
+                    <input type="text" id="breakdownLocation" name="Breakdown Location" required class="form-input" placeholder="Start typing address for suggestions...">
+                </div>
+                <div class="form-group space-y-2 md:col-span-2">
+                    <label for="problemDescription" class="block text-sm">Problem Description</label>
+                    <textarea id="problemDescription" name="Problem Description" rows="3" required class="form-input resize-none"></textarea>
+                </div>
+            </div>
+
+            <!-- Section 3: Replacement Vehicle Details -->
+            <h2 class="text-xl font-semibold text-gray-700 my-4 border-l-4 border-green-500 pl-3">Replacement Vehicle Details</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 border-t pt-6">
+                <div class="form-group space-y-2">
+                    <label for="replacementRegNum" class="block text-sm">Replacement Vehicle Registration Number</label>
+                    <input type="text" id="replacementRegNum" name="Replacement Vehicle Registration Number" required class="form-input">
+                </div>
+                <div class="form-group space-y-2">
+                    <label for="replacementOdometer" class="block text-sm">Replacement Odometer (km)</label>
+                    <input type="number" id="replacementOdometer" name="Replacement Odometer" required class="form-input">
+                </div>
+                <div class="form-group space-y-2 md:col-span-2">
+                    <label for="replacementOdoPhoto" class="block text-sm">Replacement Odo Photo (Upload)</label>
+                    <input type="file" id="replacementOdoPhoto" name="Replacement Odo Photo" accept="image/*" class="form-input p-2 bg-gray-50 border-gray-300">
+                </div>
+            </div>
+
+            <!-- Submission and Feedback -->
+            <div class="pt-8 flex flex-col items-center space-y-4">
+                <button type="submit" id="submitButton" class="w-full md:w-auto px-12 py-3 bg-blue-600 text-white font-bold rounded-full shadow-lg hover:bg-blue-700 transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50">
+                    Submit
+                </button>
+                <div id="statusMessage" class="text-sm font-medium hidden"></div>
+            </div>
+
+        </form>
+    </div>
+
+    <!-- Link to the external JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
